@@ -1,0 +1,7 @@
+/home/stephen/mono/HelloWorld/HelloWorld/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/stephen/mono/HelloWorld/HelloWorld/bin/Debug/HelloWorld.dll.mdb
+/home/stephen/mono/HelloWorld/HelloWorld/bin/Debug/HelloWorld.dll
+/home/stephen/mono/HelloWorld/HelloWorld/obj/Debug/HelloWorld.dll
+/home/stephen/mono/HelloWorld/HelloWorld/obj/Debug/HelloWorld.dll.mdb
+/home/stephen/mono/HelloWorld/HelloWorld/bin/Debug/Owin.dll
+/home/stephen/mono/HelloWorld/HelloWorld/bin/Debug/Microsoft.Owin.dll

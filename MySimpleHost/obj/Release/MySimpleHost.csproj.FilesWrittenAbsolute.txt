@@ -1,0 +1,12 @@
+/home/stephen/mono/HelloWorld/MySimpleHost/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/MySimpleHost.exe.mdb
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/MySimpleHost.exe
+/home/stephen/mono/HelloWorld/MySimpleHost/obj/Release/MySimpleHost.exe
+/home/stephen/mono/HelloWorld/MySimpleHost/obj/Release/MySimpleHost.exe.mdb
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/Owin.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/Microsoft.Owin.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/Microsoft.Owin.Diagnostics.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/Microsoft.Owin.Hosting.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/Microsoft.Owin.Host.HttpListener.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/HelloWorld.dll
+/home/stephen/mono/HelloWorld/MySimpleHost/bin/Release/HelloWorld.dll.mdb

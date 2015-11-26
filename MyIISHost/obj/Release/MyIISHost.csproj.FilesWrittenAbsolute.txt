@@ -1,0 +1,8 @@
+/home/stephen/mono/HelloWorld/MyIISHost/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/stephen/mono/HelloWorld/MyIISHost/bin/MyIISHost.dll.mdb
+/home/stephen/mono/HelloWorld/MyIISHost/bin/MyIISHost.dll
+/home/stephen/mono/HelloWorld/MyIISHost/obj/Release/MyIISHost.dll
+/home/stephen/mono/HelloWorld/MyIISHost/obj/Release/MyIISHost.dll.mdb
+/home/stephen/mono/HelloWorld/MyIISHost/bin/Owin.dll
+/home/stephen/mono/HelloWorld/MyIISHost/bin/Microsoft.Owin.dll
+/home/stephen/mono/HelloWorld/MyIISHost/bin/Microsoft.Owin.Host.SystemWeb.dll

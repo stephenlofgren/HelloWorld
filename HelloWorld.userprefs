@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="MyAnotherHost/MyAnotherHost.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyAnotherHost/Program.cs">
+    <Files>
+      <File FileName="HelloWorldV2/Startup.cs" Line="33" Column="1" />
+      <File FileName="HelloWorldV2/Properties/AssemblyInfo.cs" Line="28" Column="1" />
+      <File FileName="MyAnotherHost/Program.cs" Line="13" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/home/stephen/mono/HelloWorld/HelloWorld/Startup.cs" line="28" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
