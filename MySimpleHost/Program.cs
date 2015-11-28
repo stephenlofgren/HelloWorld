@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
-using HelloWorld;
 
 namespace MySimpleHost
 {

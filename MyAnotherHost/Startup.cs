@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
-
+using System.IO;
+ 
 [assembly: OwinStartup(typeof(MyAnotherHost.Startup))]
 namespace MyAnotherHost
 {
@@ -10,71 +11,66 @@ namespace MyAnotherHost
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			app.Use<MachineNamingMiddleware> ();
+//			// Configured to run first
+//			app.Use<MachineNamingMiddleware>();
+//			 
+//			app.Use(
+//				async (IOwinContext context, Func<Task> next) =>
+//				{
+//					// Simulate File Not Found.
+//					context.Response.StatusCode = 404;
+//					await next.Invoke();
+//				});
+//			 
+//			app.Run(async (IOwinContext context) =>
+//				{
+//					var bytes = System.Text.Encoding
+//						.UTF8.GetBytes("<h1>Hello World</h1>");
+//					var moreBytes = System.Text.Encoding
+//						.UTF8.GetBytes("<h1>Hello Universe</h1>");
+//					 
+//					context.Response.ContentLength =
+//						bytes.Length + moreBytes.Length;
+//					 
+//					// Add breakpoint on the line below.
+//					await context.Response.WriteAsync(bytes);
+//					 
+//					await context.Response.WriteAsync(moreBytes);
+//				});
 
-			app.Use (
-				async (IOwinContext context, Func<Task> next) => {
-					//Simulate File Not Fount
-					context.Response.StatusCode = 404;
-					await next.Invoke ();
+			////Reading the request body from Middleware
+//			app.Use<RequestReadingMiddleware>();
+//
+//			app.Run(async (IOwinContext context) =>
+//				{
+//					string body = String.Empty;
+//					 
+//					using (var reader = new StreamReader(
+//						context.Request.Body))
+//					{
+//						body = await reader.ReadToEndAsync();
+//					}
+//					 
+//					context.Response.ContentLength = System.Text
+//						.Encoding.UTF8.GetByteCount(body);
+//					 
+//					await context.Response.WriteAsync(body);
+//				});
+//			
+
+			////Reading Response body from Middleware
+
+			app.Use<ResponseReadingMiddleware>();
+			 
+			app.Run(async (IOwinContext context) =>
+				{
+					var bytes = System.Text.Encoding
+						.UTF8.GetBytes("<h1>Hello World</h1>");
+					 
+					context.Response.ContentLength = bytes.Length;
+					 
+					await context.Response.WriteAsync(bytes);
 				});
-
-			app.Run (async (IOwinContext arg) => {
-				var bytes = System.Text.Encoding.UTF8.GetBytes("<h1>Hello Universe</h1>");
-
-				arg.Response.ContentLength = bytes.Length;
-
-				await arg.Response.WriteAsync(bytes);
-			});
-
-			app.Use<RawMiddleWare>(new GreetingOptions(){
-				Message = "Hello from ImprovedMiddleware",
-				IsHtml = true
-			});
-
-			app.Map ("/planets", helloApp => {
-
-				helloApp.Map("/3", helloEarth =>  {
-					helloEarth.Run(async (IOwinContext arg) => {
-						await arg.Response.WriteAsync("<h1>Hello Earth</h1>");
-					});
-				});
-
-				helloApp.MapWhen(context => {
-					if (context.Request.Path.HasValue)
-					{
-						int position;
-
-						if(Int32.TryParse(context.Request.Path.Value.Trim('/'), out position))
-						{
-							if(position > 8)
-							{
-								return true;
-							}
-						}
-					}
-					return false;
-				}, helloPluto => {
-					helloPluto.Run(async (IOwinContext context) => {
-						await context.Response.WriteAsync("<h1>Oops! We are out of Solar System</h1>");
-					});
-				});
-
-				helloApp.Use (async(IOwinContext context, Func<Task> next) => {
-					await context.Response.WriteAsync ("<h1>Hello Mercury</h1>");
-					await next.Invoke ();
-					await context.Response.WriteAsync ("<h1>Hello Mercury on return</h1>");
-				});
-
-				helloApp.Run (async (IOwinContext context) => {
-					await context.Response.WriteAsync ("<h1>Hello Neptune</h1>");
-				});
-
-				app.Run (async (IOwinContext context) => {
-					await context.Response.WriteAsync("<h1>Hello Universe</h1>");
-				});
-			});
 		}
 	}
 }
-

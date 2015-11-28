@@ -11,21 +11,43 @@ namespace HelloWorldV2
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			app.Use (async(IOwinContext context, Func<Task> next) => {
-				await context.Response.WriteAsync ("<h1>Hello World</h1>");
-				await next.Invoke ();
-				await context.Response.WriteAsync ("<h1>Hello World on return</h1>");
-			});
-
-			app.Use (async(IOwinContext context, Func<Task> next) => {
-				await context.Response.WriteAsync ("<h1>Hello Universe</h1>");
-				await next.Invoke ();
-				await context.Response.WriteAsync ("<h1>Hello Universe on return</h1>");
-			});
-
-			app.Run (async(IOwinContext context) => {
-				await context.Response.WriteAsync("<h1>Hello, Simplified World!</h1>");
-			});
+			app.Map("/planets", helloApp =>
+				{
+					// New code Added – Starts here
+					helloApp.Map("/3", helloEarth =>
+						{
+							helloEarth.Run(async (IOwinContext context) =>
+								{
+									await context.Response.WriteAsync(
+										"<h1>Hello Earth</h1>");
+								});
+						});
+					// New code Added – Ends here
+					 
+					helloApp.Use(
+						async (IOwinContext context, Func<Task> next) =>
+						{
+							await context.Response.WriteAsync(
+								"<h1>Hello Mercury</h1>");
+							 
+							await next.Invoke();
+							 
+							await context.Response.WriteAsync(
+								"<h1>Hello Mercury on return</h1>");
+						});
+					 
+					helloApp.Run(async (IOwinContext context) =>
+						{
+							await context.Response.WriteAsync(
+								"<h1>Hello Neptune</h1>");
+						});
+				});
+			 
+			app.Run(async (IOwinContext context) =>
+				{
+					await context.Response.WriteAsync(
+						"<h1>Hello Universe</h1>");
+				});
 		}
 	}
 }

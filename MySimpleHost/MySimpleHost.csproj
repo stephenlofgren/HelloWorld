@@ -53,10 +53,4 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HelloWorld\HelloWorld.csproj">
-      <Project>{1B21A7C8-B246-411E-BC59-80AB7188C31C}</Project>
-      <Name>HelloWorld</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
